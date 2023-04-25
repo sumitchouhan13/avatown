@@ -1,0 +1,30 @@
+import React, { useState } from "react";
+
+function CategoryRecursive({ data }) {
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState(null);
+
+  const handleClick = (id) => {
+    setSelected(id === selected ? null : id);
+    setOpen(!open);
+  };
+  return (
+    <div style={{ paddingLeft: "20px", fontWeight: "bold" }}>
+      {data.map((parent) => {
+        return (
+          <div key={parent.id}>
+            <span
+              className={selected === parent.id ? "selected" : ""}
+              onClick={() => handleClick(parent.id)}
+            >
+              {parent.name}
+            </span>
+            {open && parent.child && <CategoryRecursive data={parent.child} />}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+export default CategoryRecursive;
