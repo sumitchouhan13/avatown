@@ -4,5 +4,41 @@
 }
 
 body {
-  font-family: "Rajdhani", sans-serif;
+  font-family: "Rajdhani", sans-serif !important;
+}
+
+.dark {
+  background-color: #1f1f1f;
+  color: #ffffff;
+  transition: all 0.25s linear;
+}
+.light {
+  background-color: #ffffff;
+  color: #000000;
+  transition: all 0.25s linear;
+}
+
+.selected {
+  text-decoration: underline;
+}
+
+.navbar {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  z-index: 99;
+}
+
+.star-icon {
+  color: gold;
+}
+
+.heart-icon {
+  color: red;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.heart-icon.filled {
+  fill: red;
+  background-color: red;
 }
