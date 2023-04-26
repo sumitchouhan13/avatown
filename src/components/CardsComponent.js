@@ -4,12 +4,13 @@ import { IoShareOutline } from "react-icons/io5";
 import { FaShoppingCart } from "react-icons/fa";
 import { RiStarSFill } from "react-icons/ri";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../features/cart/cartSlice";
+import { addToCart, removeItem } from "../features/cart/cartSlice";
 import { addLikedCards, removeLikedCards } from "../features/cards/cardsSlice";
 import { useSelector } from "react-redux";
 
 function CardsComponent({ data }) {
   const { likedCards } = useSelector((state) => state.cards);
+  const { cartItems } = useSelector((state) => state.cart);
   const [clicked, setClicked] = useState(false);
 
   const dispatch = useDispatch();
@@ -22,6 +23,25 @@ function CardsComponent({ data }) {
       dispatch(removeLikedCards(id - 1));
     }
   };
+
+  const handleClick = (id, data, event) => {
+    let cartContent = localStorage.getItem("cart");
+    cartContent = cartContent ? JSON.parse(cartContent) : [];
+
+    if (event.target.innerText === "Add") {
+      const itemIndex = cartContent[id];
+      if (itemIndex === null) {
+        cartContent[id - 1] = Object.assign(data);
+      }
+      localStorage.setItem("cart", JSON.stringify(cartContent));
+      dispatch(addToCart(data));
+      return;
+    }
+    cartContent[id - 1] = null;
+    localStorage.setItem("cart", JSON.stringify(cartContent));
+    dispatch(removeItem(id));
+  };
+
   const renderStars = (rating) => {
     const stars = [];
     for (let i = 1; i <= rating; i++) {
@@ -39,14 +59,18 @@ function CardsComponent({ data }) {
         <img src={data.image} alt="placeholder" style={{ width: "100%" }} />
         <button
           type="button"
-          className="btn btn-primary"
+          className={`${
+            cartItems[data.id - 1] !== null
+              ? "btn btn-danger"
+              : "btn btn-primary"
+          }`}
           style={{
             position: "absolute",
             top: "10%",
             left: "85%",
             transform: "translate(-50%, -50%)",
           }}
-          onClick={() => dispatch(addToCart())}
+          onClick={(event) => handleClick(data.id, data, event)}
         >
           <div style={{ display: "flex", flexDirection: "row" }}>
             <div
@@ -67,7 +91,7 @@ function CardsComponent({ data }) {
                 justifyContent: "center",
               }}
             >
-              Add
+              {cartItems[data.id - 1] !== null ? "Remove" : "Add"}
             </div>
           </div>
         </button>

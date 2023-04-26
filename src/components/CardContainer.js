@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FeaturedList } from "../data/featuredIList";
 import { CardsData } from "../data/cardsData";
 import CardsComponent from "./CardsComponent";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function CardContainer() {
   const { sortBy } = useSelector((state) => state.cards);
   const [featuredName, setFeaturedName] = useState("Featured");
+
+  useEffect(() => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      const cart = new Array(24);
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, []);
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
@@ -78,7 +87,13 @@ function CardContainer() {
           }}
         >
           {currentItems.map((data) => (
-            <CardsComponent data={data} key={data.image} />
+            <Link
+              key={data.id}
+              to={`/item/${data.id}`}
+              style={{ textDecoration: "none" }}
+            >
+              <CardsComponent data={data} />
+            </Link>
           ))}
         </div>
       </div>
