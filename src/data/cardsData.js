@@ -25,6 +25,7 @@ import ImageX from "../assets/VRC image X(F).png";
 
 export const CardsData = [
   {
+    id: 1,
     image: ImageA,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Female",
@@ -35,6 +36,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 2,
     image: ImageB,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Female",
@@ -45,6 +47,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 3,
     image: ImageC,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Male",
@@ -55,6 +58,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 4,
     image: ImageD,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Female",
@@ -65,6 +69,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 5,
     image: ImageE,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Male",
@@ -75,6 +80,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 6,
     image: ImageF,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Female",
@@ -85,6 +91,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 7,
     image: ImageG,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Male",
@@ -95,6 +102,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 8,
     image: ImageH,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Female",
@@ -105,6 +113,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 9,
     image: ImageI,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Female",
@@ -115,6 +124,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 10,
     image: ImageJ,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Male",
@@ -125,6 +135,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 11,
     image: ImageK,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Male",
@@ -135,6 +146,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 12,
     image: ImageL,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Female",
@@ -145,6 +157,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 13,
     image: ImageM,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Female",
@@ -155,6 +168,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 14,
     image: ImageN,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Female",
@@ -165,6 +179,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 15,
     image: ImageO,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Male",
@@ -175,6 +190,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 16,
     image: ImageP,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Female",
@@ -185,6 +201,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 17,
     image: ImageQ,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Male",
@@ -195,6 +212,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 18,
     image: ImageR,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Male",
@@ -205,6 +223,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 19,
     image: ImageS,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Male",
@@ -215,6 +234,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 20,
     image: ImageT,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Female",
@@ -225,6 +245,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 21,
     image: ImageU,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Female",
@@ -235,6 +256,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 22,
     image: ImageV,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Female",
@@ -245,6 +267,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 23,
     image: ImageW,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Male",
@@ -255,6 +278,7 @@ export const CardsData = [
     madeFor: "PC Only",
   },
   {
+    id: 24,
     image: ImageX,
     name: 'Avatar name "Avatown" -nice original avatar of Avatown',
     gender: "Female",
