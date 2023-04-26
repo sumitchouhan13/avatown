@@ -8,7 +8,14 @@ function MarketPage() {
       <div style={{ width: "20%", padding: "20px" }}>
         <SideNavComponent />
       </div>
-      <div style={{ width: "80%", padding: "20px" }}>
+      <div
+        style={{
+          width: "80%",
+          padding: "20px",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <CardContainer />
       </div>
     </div>

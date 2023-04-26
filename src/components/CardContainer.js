@@ -1,30 +1,25 @@
 import React, { useState } from "react";
 import { FeaturedList } from "../data/featuredIList";
 import { CardsData } from "../data/cardsData";
-import { FaShoppingCart } from "react-icons/fa";
-import { RiStarSFill } from "react-icons/ri";
-import { AiOutlineHeart } from "react-icons/ai";
-import { IoShareOutline } from "react-icons/io5";
+import CardsComponent from "./CardsComponent";
 
 function CardContainer() {
   const [featuredName, setFeaturedName] = useState("Featured");
 
-  const [clicked, setClicked] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12;
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
-  const handleHeartClick = () => {
-    setClicked(!clicked);
-  };
+  const currentItems = CardsData.slice(indexOfFirstItem, indexOfLastItem);
+
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(CardsData.length / itemsPerPage); i++) {
+    pageNumbers.push(i);
+  }
 
   const handleClick = (name) => {
     setFeaturedName(name);
-  };
-
-  const renderStars = (rating) => {
-    const stars = [];
-    for (let i = 1; i <= rating; i++) {
-      stars.push(<RiStarSFill key={i} className="star-icon" />);
-    }
-    return stars;
   };
 
   return (
@@ -61,7 +56,7 @@ function CardContainer() {
           </div>
         </div>
       </div>
-      <div style={{ height: "95%" }}>
+      <div style={{ height: "auto" }}>
         <div
           style={{
             height: "100%",
@@ -71,136 +66,55 @@ function CardContainer() {
             paddingTop: "20px",
           }}
         >
-          {CardsData.map(
-            ({
-              image,
-              name,
-              gender,
-              rating,
-              likes,
-              profile,
-              price,
-              madeFor,
-            }) => (
-              <div
-                key={image}
-                className="card"
-                style={{ width: "18rem", height: "33rem", marginTop: "10px" }}
-              >
-                <div style={{ position: "relative" }}>
-                  <img
-                    src={image}
-                    alt="placeholder"
-                    style={{ width: "100%" }}
-                  />
-                  <button
-                    type="button"
-                    className="btn btn-primary"
-                    style={{
-                      position: "absolute",
-                      top: "10%",
-                      left: "85%",
-                      transform: "translate(-50%, -50%)",
-                    }}
-                  >
-                    <div style={{ display: "flex", flexDirection: "row" }}>
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          marginRight: "5px",
-                        }}
-                      >
-                        <FaShoppingCart size={10} />
-                      </div>
-                      <div
-                        style={{
-                          fontSize: "10px",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                      >
-                        Add
-                      </div>
-                    </div>
-                  </button>
-                </div>
-                <div style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                  <h5 style={{ fontWeight: "bold" }}>{name}</h5>
-                  <div
-                    style={{ display: "flex", justifyContent: "space-between" }}
-                  >
-                    <div>{renderStars(rating)}</div>
-                    <div>{likes}</div>
-                    <div>
-                      <AiOutlineHeart
-                        className={`heart-icon ${clicked ? "filled" : ""}`}
-                        style={{ borderColor: clicked ? "red" : "initial" }}
-                        onClick={handleHeartClick}
-                      />
-                    </div>
-                  </div>
-                  <div style={{ display: "flex" }}>
-                    <div
-                      style={{
-                        borderRadius: "50%",
-                        height: "20px",
-                        width: "20px",
-                        marginRight: "10px",
-                      }}
-                    >
-                      <img
-                        src={image}
-                        alt="placeholder"
-                        style={{ width: "100%", borderRadius: "inherit" }}
-                      />
-                    </div>
-                    <div>{profile}</div>
-                  </div>
-                  <div style={{ display: "flex" }}>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <div>$</div>
-                    </div>
-                    <div style={{ fontSize: "30px" }}>{price}</div>
-                  </div>
-                  <div style={{ display: "flex" }}>
-                    <div
-                      style={{
-                        borderRadius: "50%",
-                        height: "20px",
-                        width: "20px",
-                        marginRight: "10px",
-                        backgroundColor: "blue",
-                      }}
-                    ></div>
-                    <div>{madeFor}</div>
-                  </div>
-                  <div style={{ display: "flex", alignItems: "flex-end" }}>
-                    <div
-                      style={{
-                        width: "90%",
-                      }}
-                    >
-                      Auto upload service ready, you can use this avatar within
-                      24 hours
-                    </div>
-                    <div>
-                      <IoShareOutline size={25} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )
-          )}
+          {currentItems.map((data) => (
+            <CardsComponent data={data} key={data.image} />
+          ))}
         </div>
+      </div>
+      <div
+        style={{
+          marginTop: "20px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <nav>
+          <ul className="pagination">
+            <li className="page-item">
+              <a
+                className="page-link"
+                href="/"
+                onClick={() => setCurrentPage(currentPage - 1)}
+                disabled={currentPage === 1}
+              >
+                Previous
+              </a>
+            </li>
+            {pageNumbers.map((number) => (
+              <li key={number} className="page-item">
+                <button
+                  className="page-link"
+                  onClick={() => setCurrentPage(number)}
+                  style={{
+                    fontWeight: currentPage === number ? "bold" : "normal",
+                  }}
+                >
+                  {number}
+                </button>
+              </li>
+            ))}
+            <li className="page-item">
+              <button
+                className="page-link"
+                onClick={() => setCurrentPage(currentPage + 1)}
+                disabled={currentPage === pageNumbers.length}
+              >
+                Next
+              </button>
+            </li>
+          </ul>
+        </nav>
       </div>
     </>
   );
