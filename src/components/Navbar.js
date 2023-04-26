@@ -5,6 +5,7 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Navbar(prop) {
   const { total } = useSelector((state) => state.cart);
@@ -18,9 +19,13 @@ function Navbar(prop) {
         }}
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="/" style={{ marginRight: "110px" }}>
+          <Link
+            className="navbar-brand"
+            to="/market-place"
+            style={{ marginRight: "110px" }}
+          >
             <img src={AvatownLogo} alt="logo" style={{ height: "50px" }} />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -42,14 +47,14 @@ function Navbar(prop) {
               }}
             >
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link active"
                   aria-current="page"
-                  href="/"
+                  to="/market-place"
                   style={{ fontSize: "32px" }}
                 >
                   Go to Marketpage
-                </a>
+                </Link>
               </li>
               <li
                 className="nav-item"
