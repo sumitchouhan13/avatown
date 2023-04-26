@@ -151,7 +151,7 @@ function ItemComponent() {
                 marginBottom: "5%",
               }}
             >
-              <h5 style={{ color: "blue" }}>
+              <h5 style={{ color: "blue", fontWeight: "1000" }}>
                 Price After Discount - $ {selectedCardData.price - 5}
               </h5>
             </div>
@@ -163,7 +163,13 @@ function ItemComponent() {
                 marginBottom: "5%",
               }}
             >
-              <button type="button" className="btn btn-warning">
+              <button
+                type="button"
+                className="btn btn-warning"
+                style={{ width: "80%" }}
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
                 Buy Now
               </button>
             </div>
@@ -182,12 +188,106 @@ function ItemComponent() {
                     ? "btn btn-danger"
                     : "btn btn-primary"
                 }`}
+                style={{ width: "80%" }}
                 onClick={(event) => handleClick(id, cartItems[id - 1], event)}
               >
                 {cartItems[id - 1] !== null
                   ? "Remove from Cart"
                   : "Add to Cart"}
               </button>
+            </div>
+            <div>
+              <div
+                className="modal fade"
+                id="exampleModal"
+                tabIndex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div className="modal-dialog">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h1 className="modal-title fs-5" id="exampleModalLabel">
+                        Buy Now
+                      </h1>
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div className="modal-body">
+                      <div>
+                        <span>Saved Cards</span>
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="flexRadioDefault"
+                            id="flexRadioDefault1"
+                            defaultChecked
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="flexRadioDefault1"
+                          >
+                            Ending with xxxx xxxx 1234
+                          </label>
+                        </div>
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="flexRadioDefault"
+                            id="flexRadioDefault2"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="flexRadioDefault2"
+                          >
+                            Ending with xxxx xxxx 5678
+                          </label>
+                        </div>
+                      </div>
+                      <div
+                        className="input-group flex-nowrap"
+                        style={{ marginTop: "20px" }}
+                      >
+                        <span className="input-group-text" id="addon-wrapping">
+                          Total
+                        </span>
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Username"
+                          aria-label="Username"
+                          aria-describedby="addon-wrapping"
+                          value={"$ " + (selectedCardData.price - 5)}
+                          disabled={true}
+                        />
+                      </div>
+                    </div>
+                    <div className="modal-footer">
+                      <button
+                        type="button"
+                        className="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button
+                        type="button"
+                        className="btn btn-primary"
+                        data-bs-dismiss="modal"
+                        onClick={() => alert("Order Placed Successfully !!")}
+                      >
+                        Confirm
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

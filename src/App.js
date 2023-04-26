@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { Route, Routes } from "react-router-dom";
 import ItemComponent from "./components/ItemComponent";
+import Cart from "./components/Cart";
 
 function App() {
   const [theme, setTheme] = useState(
@@ -27,6 +28,7 @@ function App() {
       <Routes>
         <Route path="/market-place" element={<MarketPage />} />
         <Route path="/item/:id" element={<ItemComponent />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </>
   );

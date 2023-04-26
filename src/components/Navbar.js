@@ -114,7 +114,11 @@ function Navbar(prop) {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/cart"
+                >
                   <div className="container mt-3">
                     <div className="position-relative">
                       <FaShoppingCart size={30} />
@@ -123,7 +127,7 @@ function Navbar(prop) {
                       </span>
                     </div>
                   </div>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="/">
