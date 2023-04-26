@@ -3,12 +3,24 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { IoShareOutline } from "react-icons/io5";
 import { FaShoppingCart } from "react-icons/fa";
 import { RiStarSFill } from "react-icons/ri";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../features/cart/cartSlice";
+import { addLikedCards, removeLikedCards } from "../features/cards/cardsSlice";
+import { useSelector } from "react-redux";
 
 function CardsComponent({ data }) {
+  const { likedCards } = useSelector((state) => state.cards);
   const [clicked, setClicked] = useState(false);
 
-  const handleHeartClick = () => {
+  const dispatch = useDispatch();
+
+  const handleHeartClick = (id) => {
     setClicked(!clicked);
+    if (clicked) {
+      dispatch(addLikedCards(id - 1));
+    } else {
+      dispatch(removeLikedCards(id - 1));
+    }
   };
   const renderStars = (rating) => {
     const stars = [];
@@ -34,6 +46,7 @@ function CardsComponent({ data }) {
             left: "85%",
             transform: "translate(-50%, -50%)",
           }}
+          onClick={() => dispatch(addToCart())}
         >
           <div style={{ display: "flex", flexDirection: "row" }}>
             <div
@@ -66,9 +79,11 @@ function CardsComponent({ data }) {
           <div>{data.likes}</div>
           <div>
             <AiOutlineHeart
-              className={`heart-icon ${clicked ? "filled" : ""}`}
+              className={`heart-icon ${
+                clicked || likedCards[data.id - 1] ? "filled" : ""
+              }`}
               style={{ borderColor: clicked ? "red" : "initial" }}
-              onClick={handleHeartClick}
+              onClick={() => handleHeartClick(data.id)}
             />
           </div>
         </div>

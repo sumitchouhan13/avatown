@@ -1,12 +1,17 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { changeSortBy } from "../features/cards/cardsSlice";
 
 function CategoryRecursive({ data }) {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(null);
 
-  const handleClick = (id) => {
+  const dispatch = useDispatch();
+
+  const handleClick = (id, name) => {
     setSelected(id === selected ? null : id);
     setOpen(!open);
+    dispatch(changeSortBy(name));
   };
   return (
     <div style={{ paddingLeft: "20px", fontWeight: "bold" }}>
@@ -15,7 +20,7 @@ function CategoryRecursive({ data }) {
           <div key={parent.id}>
             <span
               className={selected === parent.id ? "selected" : ""}
-              onClick={() => handleClick(parent.id)}
+              onClick={() => handleClick(parent.id, parent.name)}
             >
               {parent.name}
             </span>

@@ -2,16 +2,27 @@ import React, { useState } from "react";
 import { FeaturedList } from "../data/featuredIList";
 import { CardsData } from "../data/cardsData";
 import CardsComponent from "./CardsComponent";
+import { useSelector } from "react-redux";
 
 function CardContainer() {
+  const { sortBy } = useSelector((state) => state.cards);
   const [featuredName, setFeaturedName] = useState("Featured");
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  let indexOfLastItem = currentPage * itemsPerPage;
+  let indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
-  const currentItems = CardsData.slice(indexOfFirstItem, indexOfLastItem);
+  let currentItems = CardsData.slice(indexOfFirstItem, indexOfLastItem);
+
+  if (sortBy === "Male") {
+    currentItems = CardsData.filter((data) => data.gender === "Male");
+  } else if (sortBy === "Female") {
+    currentItems = CardsData.filter((data) => data.gender === "Female");
+    indexOfLastItem = currentPage * itemsPerPage;
+    indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    currentItems = currentItems.slice(indexOfFirstItem, indexOfLastItem);
+  }
 
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(CardsData.length / itemsPerPage); i++) {

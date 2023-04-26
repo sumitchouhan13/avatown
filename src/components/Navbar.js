@@ -4,8 +4,10 @@ import { FaShoppingCart } from "react-icons/fa";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { FaMoon, FaSun } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 function Navbar(prop) {
+  const { total } = useSelector((state) => state.cart);
   return (
     <div>
       <nav
@@ -112,7 +114,7 @@ function Navbar(prop) {
                     <div className="position-relative">
                       <FaShoppingCart size={30} />
                       <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        3
+                        {total}
                       </span>
                     </div>
                   </div>
