@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { addToCart, removeItem } from "../features/cart/cartSlice";
 import { addLikedCards, removeLikedCards } from "../features/cards/cardsSlice";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function CardsComponent({ data }) {
   const { likedCards } = useSelector((state) => state.cards);
@@ -27,7 +28,6 @@ function CardsComponent({ data }) {
   const handleClick = (id, data, event) => {
     let cartContent = localStorage.getItem("cart");
     cartContent = cartContent ? JSON.parse(cartContent) : [];
-
     if (event.target.innerText === "Add") {
       const itemIndex = cartContent[id];
       if (itemIndex === null) {
@@ -57,44 +57,47 @@ function CardsComponent({ data }) {
     >
       <div style={{ position: "relative" }}>
         <img src={data.image} alt="placeholder" style={{ width: "100%" }} />
-        <button
-          type="button"
-          className={`${
-            cartItems[data.id - 1] !== null
-              ? "btn btn-danger"
-              : "btn btn-primary"
-          }`}
-          style={{
-            position: "absolute",
-            top: "10%",
-            left: "85%",
-            transform: "translate(-50%, -50%)",
-          }}
-          onClick={(event) => handleClick(data.id, data, event)}
-        >
-          <div style={{ display: "flex", flexDirection: "row" }}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginRight: "5px",
-              }}
-            >
-              <FaShoppingCart size={10} />
+
+        <Link to={`/item/${data.id}`} style={{ textDecoration: "none" }}>
+          <button
+            type="button"
+            className={`${
+              cartItems[data.id - 1] !== null
+                ? "btn btn-danger"
+                : "btn btn-primary"
+            }`}
+            style={{
+              position: "absolute",
+              top: "10%",
+              left: "85%",
+              transform: "translate(-50%, -50%)",
+            }}
+            onClick={(event) => handleClick(data.id, data, event)}
+          >
+            <div style={{ display: "flex", flexDirection: "row" }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginRight: "5px",
+                }}
+              >
+                <FaShoppingCart size={10} />
+              </div>
+              <div
+                style={{
+                  fontSize: "10px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                {cartItems[data.id - 1] !== null ? "Remove" : "Add"}
+              </div>
             </div>
-            <div
-              style={{
-                fontSize: "10px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              {cartItems[data.id - 1] !== null ? "Remove" : "Add"}
-            </div>
-          </div>
-        </button>
+          </button>
+        </Link>
       </div>
       <div style={{ paddingLeft: "10px", paddingRight: "10px" }}>
         <h5 style={{ fontWeight: "bold" }}>{data.name}</h5>
@@ -147,7 +150,7 @@ function CardsComponent({ data }) {
               height: "20px",
               width: "20px",
               marginRight: "10px",
-              backgroundColor: "blue",
+              backgroundColor: "#00FFFF",
             }}
           ></div>
           <div>{data.madeFor}</div>

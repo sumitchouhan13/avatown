@@ -26,7 +26,7 @@ function App() {
     <>
       <Navbar toggleTheme={toggleTheme} theme={theme} />
       <Routes>
-        <Route path="/market-place" element={<MarketPage />} />
+        <Route exact path="/" element={<MarketPage />} />
         <Route path="/item/:id" element={<ItemComponent />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>

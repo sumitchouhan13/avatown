@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { changeSortBy } from "../features/cards/cardsSlice";
+import { changeSortBy, addHeadingName } from "../features/cards/cardsSlice";
 
 function CategoryRecursive({ data }) {
   const [open, setOpen] = useState(false);
@@ -12,6 +12,7 @@ function CategoryRecursive({ data }) {
     setSelected(id === selected ? null : id);
     setOpen(!open);
     dispatch(changeSortBy(name));
+    dispatch(addHeadingName(name));
   };
   return (
     <div style={{ paddingLeft: "20px", fontWeight: "bold" }}>

@@ -26,6 +26,29 @@ function CheckBoxComponent({ data }) {
             onChange={() => handleCheckboxChange(index)}
           />
           <label style={{ marginLeft: "10px" }}>{data.subOption}</label>
+          {data.subOption === "VRChat(Quest)" ? (
+            <div
+              style={{
+                borderRadius: "50%",
+                height: "15px",
+                width: "15px",
+                marginLeft: "10px",
+                backgroundColor: "#7FFFD4",
+              }}
+            ></div>
+          ) : data.subOption === "VRChat(PCVR)" ? (
+            <div
+              style={{
+                borderRadius: "50%",
+                height: "15px",
+                width: "15px",
+                marginLeft: "10px",
+                backgroundColor: "#00FFFF",
+              }}
+            ></div>
+          ) : (
+            ""
+          )}
         </div>
       ))}
     </div>
