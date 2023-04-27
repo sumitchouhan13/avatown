@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/avatown/static/css/main.7b61df07.css",
-    "main.js": "/avatown/static/js/main.debbf781.js",
+    "main.css": "/avatown/static/css/main.e653a892.css",
+    "main.js": "/avatown/static/js/main.90917293.js",
     "static/media/VRC image S(F).png": "/avatown/static/media/VRC image S(F).d9699e31eb83f7c88812.png",
     "static/media/VRC image R(F).png": "/avatown/static/media/VRC image R(F).acbb43947493e1483c12.png",
     "static/media/VRC image O(F).png": "/avatown/static/media/VRC image O(F).56671d0cdc1bc917c516.png",
@@ -28,11 +28,11 @@
     "static/media/VRC image F(F).png": "/avatown/static/media/VRC image F(F).645660412824ebbe27db.png",
     "static/media/logo_avatown_manual_1_basi_inverse.png": "/avatown/static/media/logo_avatown_manual_1_basi_inverse.bc29d574a24db24cbe5b.png",
     "index.html": "/avatown/index.html",
-    "main.7b61df07.css.map": "/avatown/static/css/main.7b61df07.css.map",
-    "main.debbf781.js.map": "/avatown/static/js/main.debbf781.js.map"
+    "main.e653a892.css.map": "/avatown/static/css/main.e653a892.css.map",
+    "main.90917293.js.map": "/avatown/static/js/main.90917293.js.map"
   },
   "entrypoints": [
-    "static/css/main.7b61df07.css",
-    "static/js/main.debbf781.js"
+    "static/css/main.e653a892.css",
+    "static/js/main.90917293.js"
   ]
 }
