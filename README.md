@@ -58,6 +58,16 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 5. React-router-dom
 6. Gh-pages
 
+### Exciting Things About this project :-
+
+1. User can toggle between dark and light mode. (PS :- Dark mode is love)
+2. User can filter out Avatars based on Genders.
+3. Used localstorage concept so that the user doesn't lose the items they selected.
+4. Used Redux for state management.
+5. Every Item in the market page has "Add" functionality by which user will be directed to the items page for more details.
+6. Used Recursive component to display nested data.
+7. Used Reusable components for displaying data.
+8. User can fully interact with the website.
 
 
 
