@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/avatown/static/css/main.7b61df07.css",
+    "main.js": "/avatown/static/js/main.debbf781.js",
+    "static/media/VRC image S(F).png": "/avatown/static/media/VRC image S(F).d9699e31eb83f7c88812.png",
+    "static/media/VRC image R(F).png": "/avatown/static/media/VRC image R(F).acbb43947493e1483c12.png",
+    "static/media/VRC image O(F).png": "/avatown/static/media/VRC image O(F).56671d0cdc1bc917c516.png",
+    "static/media/VRC image G(F).png": "/avatown/static/media/VRC image G(F).73c18da922b9b7009be8.png",
+    "static/media/VRC image X(F).png": "/avatown/static/media/VRC image X(F).624874715c64d53a256a.png",
+    "static/media/VRC image V(F).png": "/avatown/static/media/VRC image V(F).99adde098708ab439e46.png",
+    "static/media/VRC image A(F).png": "/avatown/static/media/VRC image A(F).7bcfc8033ff46c4c934a.png",
+    "static/media/VRC image D(F).png": "/avatown/static/media/VRC image D(F).e3726fadec371969d363.png",
+    "static/media/VRC image M(F).png": "/avatown/static/media/VRC image M(F).37217791a0e54dd49183.png",
+    "static/media/VRC image N(F).png": "/avatown/static/media/VRC image N(F).aa7356f2034120cdc622.png",
+    "static/media/VRC image I(F).png": "/avatown/static/media/VRC image I(F).c4f7d38dfbecf5e887c1.png",
+    "static/media/VRC image U(F).png": "/avatown/static/media/VRC image U(F).6d9e9b054891cd7dc6e5.png",
+    "static/media/VRC image Q(M).png": "/avatown/static/media/VRC image Q(M).be96cdbc68c435d8b181.png",
+    "static/media/VRC image T(F).png": "/avatown/static/media/VRC image T(F).0926c819d5870d47b564.png",
+    "static/media/VRC image B(F).png": "/avatown/static/media/VRC image B(F).e2fce33fb1b63aa78b24.png",
+    "static/media/VRC image W(F).png": "/avatown/static/media/VRC image W(F).a7eb31f0299384e3c29b.png",
+    "static/media/VRC image L(F).png": "/avatown/static/media/VRC image L(F).aef6f089feb2af88d646.png",
+    "static/media/VRC image H(F).png": "/avatown/static/media/VRC image H(F).00970bffb2d96c7ba149.png",
+    "static/media/VRC image E(M).png": "/avatown/static/media/VRC image E(M).2b6b2c8be691fbcf4534.png",
+    "static/media/VRC image J(M).png": "/avatown/static/media/VRC image J(M).0912e860781d63a411bc.png",
+    "static/media/VRC image P(F).png": "/avatown/static/media/VRC image P(F).ded0c39605b121f854ac.png",
+    "static/media/VRC image C(M).png": "/avatown/static/media/VRC image C(M).946d946a131e8078e944.png",
+    "static/media/VRC image K(M).png": "/avatown/static/media/VRC image K(M).12ef89328cbfce399ff3.png",
+    "static/media/VRC image F(F).png": "/avatown/static/media/VRC image F(F).645660412824ebbe27db.png",
+    "static/media/logo_avatown_manual_1_basi_inverse.png": "/avatown/static/media/logo_avatown_manual_1_basi_inverse.bc29d574a24db24cbe5b.png",
+    "index.html": "/avatown/index.html",
+    "main.7b61df07.css.map": "/avatown/static/css/main.7b61df07.css.map",
+    "main.debbf781.js.map": "/avatown/static/js/main.debbf781.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7b61df07.css",
+    "static/js/main.debbf781.js"
+  ]
+}
