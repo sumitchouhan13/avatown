@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { IoShareOutline } from "react-icons/io5";
 import { FaShoppingCart } from "react-icons/fa";
@@ -8,21 +8,20 @@ import { addToCart, removeItem } from "../features/cart/cartSlice";
 import { addLikedCards, removeLikedCards } from "../features/cards/cardsSlice";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { RiHeartFill } from "react-icons/ri";
 
 function CardsComponent({ data }) {
   const { likedCards } = useSelector((state) => state.cards);
   const { cartItems } = useSelector((state) => state.cart);
-  const [clicked, setClicked] = useState(false);
 
   const dispatch = useDispatch();
 
   const handleHeartClick = (id) => {
-    setClicked(!clicked);
-    if (clicked) {
-      dispatch(addLikedCards(id - 1));
-    } else {
+    if (likedCards[id - 1] !== false) {
       dispatch(removeLikedCards(id - 1));
+      return;
     }
+    dispatch(addLikedCards(id - 1));
   };
 
   const handleClick = (id, data, event) => {
@@ -104,14 +103,12 @@ function CardsComponent({ data }) {
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div>{renderStars(data.rating)}</div>
           <div>{data.likes}</div>
-          <div>
-            <AiOutlineHeart
-              className={`heart-icon ${
-                clicked || likedCards[data.id - 1] ? "filled" : ""
-              }`}
-              style={{ borderColor: clicked ? "red" : "initial" }}
-              onClick={() => handleHeartClick(data.id)}
-            />
+          <div onClick={() => handleHeartClick(data.id)}>
+            {likedCards[data.id - 1] ? (
+              <RiHeartFill style={{ fill: "red" }} />
+            ) : (
+              <AiOutlineHeart style={{ borderColor: "red" }} />
+            )}
           </div>
         </div>
         <div style={{ display: "flex" }}>
