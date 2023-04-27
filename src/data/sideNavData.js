@@ -43,25 +43,25 @@ export const SideNavData = [
     heading: "Polygon amount",
     options: [
       {
-        subOption: "Under 7,500",
+        subOption: "Under ▲7,500",
       },
       {
-        subOption: "7,500 to 10,000",
+        subOption: "▲7,500 to ▲10,000",
       },
       {
-        subOption: "10,000 to 15,000",
+        subOption: "▲10,000 to ▲15,000",
       },
       {
-        subOption: "15,000 to 20,000",
+        subOption: "▲15,000 to ▲20,000",
       },
       {
-        subOption: "20,000 to 32,000",
+        subOption: "▲20,000 to ▲32,000",
       },
       {
-        subOption: "32,000 to 70,000",
+        subOption: "▲32,000 to ▲70,000",
       },
       {
-        subOption: "70,000 & above",
+        subOption: "▲70,000 & above",
       },
     ],
   },

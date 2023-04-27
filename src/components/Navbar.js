@@ -21,7 +21,7 @@ function Navbar(prop) {
         <div className="container-fluid">
           <Link
             className="navbar-brand"
-            to="/market-place"
+            to="/"
             style={{ marginRight: "110px" }}
           >
             <img src={AvatownLogo} alt="logo" style={{ height: "50px" }} />
@@ -50,7 +50,7 @@ function Navbar(prop) {
                 <Link
                   className="nav-link active"
                   aria-current="page"
-                  to="/market-place"
+                  to="/"
                   style={{ fontSize: "32px" }}
                 >
                   Go to Marketpage

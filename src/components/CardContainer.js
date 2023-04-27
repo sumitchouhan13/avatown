@@ -3,10 +3,10 @@ import { FeaturedList } from "../data/featuredIList";
 import { CardsData } from "../data/cardsData";
 import CardsComponent from "./CardsComponent";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 function CardContainer() {
   const { sortBy } = useSelector((state) => state.cards);
+  const { headingName } = useSelector((state) => state.cards);
   const [featuredName, setFeaturedName] = useState("Featured");
 
   useEffect(() => {
@@ -42,11 +42,27 @@ function CardContainer() {
     setFeaturedName(name);
   };
 
+  const renderName = () => {
+    const names = [];
+    for (let i = 0; i < headingName.length; i++) {
+      names.push(
+        i === headingName.length - 1 ? (
+          <h4 key={i}>{headingName[i]}</h4>
+        ) : (
+          <h4 key={i}>{`${headingName[i]} > `}</h4>
+        )
+      );
+    }
+    return names;
+  };
+
   return (
     <>
       <div style={{ height: "5%", display: "flex", flexDirection: "row" }}>
         <div style={{ width: "50%", display: "flex", alignItems: "center" }}>
-          <h2>All Items</h2>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            {renderName()}
+          </div>
         </div>
         <div
           style={{
@@ -87,13 +103,7 @@ function CardContainer() {
           }}
         >
           {currentItems.map((data) => (
-            <Link
-              key={data.id}
-              to={`/item/${data.id}`}
-              style={{ textDecoration: "none" }}
-            >
-              <CardsComponent data={data} />
-            </Link>
+            <CardsComponent data={data} key={data.id} />
           ))}
         </div>
       </div>

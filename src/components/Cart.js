@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { removeItem } from "../features/cart/cartSlice";
+import { removeItem, clearCart } from "../features/cart/cartSlice";
 
 function Cart() {
   const { cartItems, amount } = useSelector((state) => state.cart);
@@ -132,6 +132,141 @@ function Cart() {
             }}
           >
             <h1>Total Amount : $ {amount}</h1>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginBottom: "5%",
+            }}
+          >
+            <button
+              type="button"
+              className="btn btn-warning"
+              style={{ width: "80%" }}
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              disabled={amount === 0}
+            >
+              Complete Purchase
+            </button>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginBottom: "5%",
+            }}
+          >
+            <button
+              type="button"
+              className="btn btn-danger"
+              style={{ width: "80%" }}
+              disabled={amount === 0}
+              onClick={() => {
+                dispatch(clearCart());
+              }}
+            >
+              Clear Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          className="modal fade"
+          id="exampleModal"
+          tabIndex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h1 className="modal-title fs-5" id="exampleModalLabel">
+                  Buy Now
+                </h1>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">
+                <div>
+                  <span>Saved Cards</span>
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault1"
+                      defaultChecked
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor="flexRadioDefault1"
+                    >
+                      Ending with xxxx xxxx 1234
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault2"
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor="flexRadioDefault2"
+                    >
+                      Ending with xxxx xxxx 5678
+                    </label>
+                  </div>
+                </div>
+                <div
+                  className="input-group flex-nowrap"
+                  style={{ marginTop: "20px" }}
+                >
+                  <span className="input-group-text" id="addon-wrapping">
+                    Total
+                  </span>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Username"
+                    aria-label="Username"
+                    aria-describedby="addon-wrapping"
+                    value={"$ " + amount}
+                    disabled={true}
+                  />
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-dismiss="modal"
+                  onClick={() => {
+                    alert("Order Placed Successfully !!");
+                    dispatch(clearCart());
+                  }}
+                >
+                  Confirm
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
