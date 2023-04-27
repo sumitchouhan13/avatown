@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   sortBy: "All",
-  likedCards: new Array(24),
+  likedCards: new Array(24).fill(false),
   headingName: ["All Items"],
 };
 
